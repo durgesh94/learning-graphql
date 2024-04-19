@@ -13,7 +13,11 @@ var root = {
             "name": "iPhone 15",
             "description": "Test",
             "price": 75000,
-            "soldOut": false
+            "soldOut": false,
+            "stores": [
+                { store: "Pune" },
+                { store: "Mumbai" }
+            ]
         }
     }
 };
