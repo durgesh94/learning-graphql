@@ -1,0 +1,26 @@
+{
+  "name": "learning-graphql",
+  "version": "1.0.0",
+  "description": "NodeJS, ExpressJS, GraphQL",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./index.js --excec babel-node -e js"
+  },
+  "author": "Durgesh Tambe",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "graphiql": "^3.2.0",
+    "graphql": "^16.8.1",
+    "graphql-http": "^1.22.1",
+    "ruru": "^2.0.0-beta.11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.4",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.24.4",
+    "nodemon": "^3.1.0"
+  }
+}
