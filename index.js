@@ -2,27 +2,13 @@ import express from 'express';
 import { createHandler } from 'graphql-http/lib/use/express';
 import { ruruHTML } from "ruru/server"
 import schema from './src/data/schema.js';
+import resolvers from './src/data/resolvers.js';
 
 const PORT = 8080;
 
-// The root provides a resolver function for each API endpoint
-var root = {
-    product: () => {
-        return {
-            "id": 1,
-            "name": "iPhone 15",
-            "description": "Test",
-            "price": 75000,
-            "soldOut": false,
-            "stores": [
-                { store: "Pune" },
-                { store: "Mumbai" }
-            ]
-        }
-    }
-};
+var app = express();
 
-var app = express()
+const root = resolvers;
 
 // Create and use the GraphQL handler.
 app.all("/graphql", createHandler({
