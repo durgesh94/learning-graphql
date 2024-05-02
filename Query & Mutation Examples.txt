@@ -1,0 +1,88 @@
+1. Create product
+mutation {
+  createProduct(
+    input: {
+      name: "iPhone 13"
+      description: "Mobile"
+      price: 499.99
+      soldOut: ONSALE
+      qty: 10
+      stores: [{ store: "Pune" }, { store: "Mumbai" }]
+    }
+  ) {
+    id
+    name
+    price
+  }
+}
+
+2. Update product
+mutation {
+  updateProduct(
+    input: {
+      id: "6633560135e732fc0d814b93"
+      price: 399.99
+      description: "Mobile Category"
+      stores: [{ store: "Amazon" }, { store: "Flipkart" }]
+    }
+  ) {
+    id
+    name
+    price
+  }
+}
+
+3. Get product
+query {
+  getProduct(id: "6633560135e732fc0d814b93") {
+    id
+    name
+    description
+  }
+}
+
+4. Get all products
+query {
+  getAllProducts {
+    id
+    name
+    description
+  }
+}
+
+5. Delete product
+mutation {
+  deleteProduct(id: "6633641f7c8827f3b1de160e")
+}
+
+6. Querying with aliases
+query {
+  i15: getProduct(id: "6633560135e732fc0d814b93") {
+    name
+    price
+    qty
+    description
+  }
+  i14: getProduct(id: "663363c11e3965484f0522e6") {
+    name
+    price
+  }
+}
+
+7. Querying with fragments
+query {
+  i15: getProduct(id: "6633560135e732fc0d814b93") {
+    ...productFragment
+  }
+  i14: getProduct(id: "663363c11e3965484f0522e6") {
+    ...productFragment
+  }
+}
+
+fragment productFragment on Product {
+  name
+  price
+  qty
+  description
+}
+
